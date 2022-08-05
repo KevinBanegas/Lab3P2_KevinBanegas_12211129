@@ -53,8 +53,8 @@ public class Cohetes {
         return velocidad;
     }
 
-    public void setVelocidad(int velocidad) {
-        this.velocidad = velocidad;
+    public void setVelocidad(int random) {
+        this.velocidad = random*potencia;
     }
 
     public ArrayList<Personas> getPersonas() {
