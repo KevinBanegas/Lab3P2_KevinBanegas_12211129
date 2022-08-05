@@ -25,6 +25,11 @@ public class CombustSolid extends Cohetes{
     public void setMaterial(String material) {
         this.material = material;
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+"\nTipo: CombustSolid" + "\nKilos Combustible: " + kilosCombust + "\nMaterial=" + material + '}';
+    }
     
     
 }

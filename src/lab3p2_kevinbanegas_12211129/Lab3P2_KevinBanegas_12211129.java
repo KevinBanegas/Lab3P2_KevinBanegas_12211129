@@ -13,13 +13,13 @@ public class Lab3P2_KevinBanegas_12211129 {
         boolean centinela = true;
         ArrayList<Planetas> planetas = new ArrayList();
         ArrayList<Cohetes> cohetes = new ArrayList();
-        planetas.add(new Rocosos(34, false, "Serpulo", 700000000, 120000, 129));
+        planetas.add(new Rocosos(34, false, "Serpulo", 700000000, 1200, 129));
         planetas.get(0).getLunas().add(new Lunas("Europa", 40));
         planetas.get(0).getLunas().add(new Lunas("Francium", 80));
-        planetas.add(new Rocosos(10, true, "Aries", 192000000, 1294000, 30));
+        planetas.add(new Rocosos(10, true, "Aries", 192000000, 12900, 30));
         planetas.get(1).getLunas().add(new Lunas("Salting", 90));
         planetas.get(1).getLunas().add(new Lunas("MoonTwo", 30));
-        planetas.add(new Gaseosos(100, 20, "Mega Saturn", 530233000, 3000000, 300));
+        planetas.add(new Gaseosos(100, 20, "Mega Saturn", 530233000, 9000, 300));
         planetas.get(2).getLunas().add(new Lunas("USA Moon", 10));
         planetas.get(2).getLunas().add(new Lunas("Arctic", 100));
         cohetes.add(new CombustLiqui(23000, 50000, "Autumn", 123442, 8));
@@ -281,11 +281,21 @@ public class Lab3P2_KevinBanegas_12211129 {
                     int opcionLaunch = lea.nextInt();
                     switch (opcionLaunch) {
                         case 1: {
+                            int fallo = 0;
+                            int exito = 0;
                             System.out.println("Ingrese el indice del cohete que desea lanzar: ");
                             int coheteLaunch = lea.nextInt();
                             lea = new Scanner(System.in);
                             cohetes.get(coheteLaunch).setVelocidad(5000 + r.nextInt(20000));
-                            System.out.println("El Cohete " + cohetes.get(coheteLaunch).getNombre() + " alcanzó la velocidad de " + cohetes.get(coheteLaunch).getVelocidad() + " Km/h y no logró salir del planeta " + planetas.get(planeta).getNombre());
+                            if (cohetes.get(coheteLaunch).getVelocidad() > planetas.get(planeta).getVelEscape()) {
+                                System.out.println("El Cohete " + cohetes.get(coheteLaunch).getNombre() + " alcanzó la velocidad de " + cohetes.get(coheteLaunch).getVelocidad() + " Km/h y logró salir del planeta " + planetas.get(planeta).getNombre());
+                                exito++;
+                            }else{
+                                System.out.println("El Cohete " + cohetes.get(coheteLaunch).getNombre() + " alcanzó la velocidad de " + cohetes.get(coheteLaunch).getVelocidad() + " Km/h y no logró salir del planeta " + planetas.get(planeta).getNombre());
+                                fallo++;
+                            }
+                            System.out.println("Intetos Exitosos: " + exito);
+                            System.out.println("Intentos Fallidos: " + fallo);
                         }
                         break;
                         case 2: {

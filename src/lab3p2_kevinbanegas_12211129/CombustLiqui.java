@@ -65,6 +65,11 @@ public class CombustLiqui extends Cohetes{
     public void setPersonas(ArrayList<Personas> personas) {
         this.personas = personas;
     }
+
+    @Override
+    public String toString() {
+        return "CombustLiqui{" + "litrosGas=" + litrosGas + '}';
+    }
     
     
     

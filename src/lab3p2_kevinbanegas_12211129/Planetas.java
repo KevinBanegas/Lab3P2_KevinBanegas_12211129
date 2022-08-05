@@ -3,7 +3,7 @@ package lab3p2_kevinbanegas_12211129;
 import java.util.ArrayList;
 import java.util.Random;
 public class Planetas {
-    private double G = Math.sqrt(Math.pow(6.67*10, -11));
+    private double G = Math.sqrt(6.67*Math.pow(10, -11));
     protected Random r = new Random();
     protected String nombre;
     protected int masa;
@@ -70,7 +70,7 @@ public class Planetas {
 
     @Override
     public String toString() {
-        return "Planetas{" + "nombre=" + nombre + ", masa=" + masa + ", radio=" + radio + ", tempProm=" + tempProm + ", velEscape=" + velEscape + ", lunas=" + lunas;
+        return "\nNombre: " + nombre + "\nMasa: " + masa + "\nRadio:" + radio + "\nTemperature Promedio: " + tempProm + "\nVelocida de Escape: " + velEscape + "\nLunas-----" + lunas;
     }
     
     

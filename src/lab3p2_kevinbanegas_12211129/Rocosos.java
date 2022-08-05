@@ -28,7 +28,7 @@ public class Rocosos extends Planetas{
 
     @Override
     public String toString() {
-        return super.toString()+"Rocosos{" + "densidad=" + densidad + ", indicadorVida=" + indicadorVida + '}';
+        return super.toString()+"\nTipo: Rocoso" + "\nDensidad: " + densidad + "\nIndicador de Vida: " + indicadorVida;
     }
 
     

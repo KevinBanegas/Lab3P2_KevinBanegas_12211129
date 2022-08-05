@@ -27,7 +27,7 @@ public class Lunas {
 
     @Override
     public String toString() {
-        return "Lunas{" + "nombre=" + nombre + ", cantCrater=" + cantCrater + '}';
+        return "\nNombre: " + nombre + "\nCantidad de Crateres: " + cantCrater;
     }
     
     

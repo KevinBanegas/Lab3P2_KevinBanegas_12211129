@@ -29,7 +29,7 @@ public class Gaseosos extends Planetas{
 
     @Override
     public String toString() {
-        return super.toString()+"Gaseosos{" + "presion=" + presion + ", cantAnillos=" + cantAnillos + '}';
+        return super.toString()+"\nTipo: Gaseosos" + "\nPresion: " + presion + "\nCantidad de Anillos: " + cantAnillos;
     }
     
     
