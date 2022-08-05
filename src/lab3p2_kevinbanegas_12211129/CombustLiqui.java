@@ -68,7 +68,7 @@ public class CombustLiqui extends Cohetes{
 
     @Override
     public String toString() {
-        return "CombustLiqui{" + "litrosGas=" + litrosGas + '}';
+        return super.toString()+"Tipo: Combustible Liquido" + "\nLitros de Gas: " + litrosGas;
     }
     
     

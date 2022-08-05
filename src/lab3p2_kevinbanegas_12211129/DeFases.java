@@ -39,7 +39,7 @@ public class DeFases extends Cohetes {
 
     @Override
     public String toString() {
-        return "DeFases{" + "cantFases=" + cantFases + ", cantMotores=" + cantMotores + ", altura=" + altura + '}';
+        return super.toString()+"\nTipo : De Fases" + "\nCantidad de Fases: " + cantFases + "\nCantidad de Motores: " + cantMotores + "\nAltura: " + altura;
     }
 
 }
