@@ -1,14 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lab3p2_kevinbanegas_12211129;
 
-/**
- *
- * @author Usuario
- */
 public class Lunas {
+    protected String nombre;
+    protected int cantCrater;
+
+    public Lunas(String nombre, int cantCrater) {
+        this.nombre = nombre;
+        this.cantCrater = cantCrater;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getCantCrater() {
+        return cantCrater;
+    }
+
+    public void setCantCrater(int cantCrater) {
+        this.cantCrater = cantCrater;
+    }
+
+    @Override
+    public String toString() {
+        return "Lunas{" + "nombre=" + nombre + ", cantCrater=" + cantCrater + '}';
+    }
+    
     
 }
