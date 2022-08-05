@@ -8,7 +8,7 @@ public class Planetas {
     protected int radio;
     protected int tempProm;
     protected int velEscape;
-    protected ArrayList<Lunas> lunas;
+    protected ArrayList<Lunas> lunas = new ArrayList();
 
     public Planetas(String nombre, int masa, int radio, int tempProm) {
         this.nombre = nombre;

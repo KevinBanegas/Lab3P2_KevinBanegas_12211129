@@ -11,7 +11,7 @@ public class Lab3P2_KevinBanegas_12211129 {
         boolean centinela = true;
         ArrayList<Planetas> planetas = new ArrayList();
         ArrayList<Cohetes> cohetes = new ArrayList();
-        
+       // ArrayList<Lunas> lunas = new ArrayList
         planetas.add(new Rocosos(34,false,"Serpulo",700000000,120000,129));
         planetas.get(0).getLunas().add(new Lunas("Europa", 40));
         planetas.get(0).getLunas().add(new Lunas("Francium", 80));

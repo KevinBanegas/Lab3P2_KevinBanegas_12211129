@@ -8,7 +8,7 @@ public class Cohetes {
     protected int numSerie;
     protected int potencia;
     protected int velocidad;
-    protected ArrayList<Personas> personas;
+    protected ArrayList<Personas> personas = new ArrayList();
 
     public Cohetes(int pesoSoport, String nombre, int numSerie, int potencia) {
         this.pesoSoport = pesoSoport;
