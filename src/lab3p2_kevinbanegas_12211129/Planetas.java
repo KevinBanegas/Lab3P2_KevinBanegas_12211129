@@ -3,7 +3,7 @@ package lab3p2_kevinbanegas_12211129;
 import java.util.ArrayList;
 import java.util.Random;
 public class Planetas {
-    private double G = Math.pow(6.67*10, -11);
+    private double G = Math.sqrt(Math.pow(6.67*10, -11));
     protected Random r = new Random();
     protected String nombre;
     protected int masa;
