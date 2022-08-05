@@ -11,27 +11,25 @@ public class Lab3P2_KevinBanegas_12211129 {
         boolean centinela = true;
         ArrayList<Planetas> planetas = new ArrayList();
         ArrayList<Cohetes> cohetes = new ArrayList();
-       // ArrayList<Lunas> lunas = new ArrayList
-        planetas.add(new Rocosos(34,false,"Serpulo",700000000,120000,129));
+        planetas.add(new Rocosos(34, false, "Serpulo", 700000000, 120000, 129));
         planetas.get(0).getLunas().add(new Lunas("Europa", 40));
         planetas.get(0).getLunas().add(new Lunas("Francium", 80));
-        planetas.add(new Rocosos(10,true,"Aries",192000000,1294000,30));
+        planetas.add(new Rocosos(10, true, "Aries", 192000000, 1294000, 30));
         planetas.get(1).getLunas().add(new Lunas("Salting", 90));
         planetas.get(1).getLunas().add(new Lunas("MoonTwo", 30));
-        planetas.add(new Gaseosos(100,20,"Mega Saturn", 530233000, 3000000, 300));
+        planetas.add(new Gaseosos(100, 20, "Mega Saturn", 530233000, 3000000, 300));
         planetas.get(2).getLunas().add(new Lunas("USA Moon", 10));
         planetas.get(2).getLunas().add(new Lunas("Arctic", 100));
-        cohetes.add(new CombustLiqui(23000, 50000,"Autumn",123442,8));
+        cohetes.add(new CombustLiqui(23000, 50000, "Autumn", 123442, 8));
         cohetes.get(0).getPersonas().add(new Personas("Wilmer", 34, 100));
         cohetes.get(0).getPersonas().add(new Personas("Jason", 29, 120));
         cohetes.add(new DeFases(3, 6, 20, 40000, "Mecha", 149823, 5));
         cohetes.get(1).getPersonas().add(new Personas("Hashem", 32, 100));
         cohetes.get(1).getPersonas().add(new Personas("Ana", 30, 110));
-        cohetes.add(new CombustSolid(1900,"Thorium", 800000,"Europa",123442,8));
+        cohetes.add(new CombustSolid(1900, "Thorium", 800000, "Europa", 123442, 8));
         cohetes.get(2).getPersonas().add(new Personas("Alex", 31, 100));
         cohetes.get(2).getPersonas().add(new Personas("Kevun", 28, 1020));
-        
-        
+
         System.out.println(planetas);
         System.out.println(cohetes);
         while (centinela == true) {
@@ -43,9 +41,235 @@ public class Lab3P2_KevinBanegas_12211129 {
             System.out.println("5) Listar Cohetes");
             System.out.println("6) Listar Planetas");
             System.out.println("7) Probar Cohete");
+            System.out.println("8) Salir");
             System.out.println("------------------------------------");
             System.out.println("Ingrese una opcion: ");
             int opcion = lea.nextInt();
+            lea = new Scanner(System.in);
+            switch (opcion) {
+                case 1: {
+                    System.out.println("Ingrese el nombre:");
+                    String nombre = lea.nextLine();
+                    lea = new Scanner(System.in);
+                    System.out.println("Ingrese pero soportable: ");
+                    int pesoSoport = lea.nextInt();
+                    lea = new Scanner(System.in);
+                    System.out.println("Ingrese el numero de serie:");
+                    int numSerie = lea.nextInt();
+                    lea = new Scanner(System.in);
+                    int check = 0;
+                    for (Cohetes cohete : cohetes) {
+                        if (cohete.getNumSerie() == numSerie) {
+                            check = 1;
+                        }
+                    }
+                    if (check == 0) {
+                        System.out.println("Ingrese la potencia(1-9): ");
+                        int potencia = lea.nextInt();
+                        if (potencia > 0 && potencia < 9) {
+                            System.out.println("Ingrese el tipo de cohete:");
+                            System.out.println("1) Combustible Liquido");
+                            System.out.println("2) De Fases");
+                            System.out.println("3) Combustible Solido");
+                            int tipo = lea.nextInt();
+                            lea = new Scanner(System.in);
+                            switch (tipo) {
+                                case 1:
+                                    System.out.println("Ingrese los litros de gas:");
+                                    int litros = lea.nextInt();
+                                    lea = new Scanner(System.in);
+                                    cohetes.add(new CombustLiqui(litros, pesoSoport, nombre, numSerie, potencia));
+                                    break;
+                                case 2:
+                                    System.out.println("Ingrese la cantidad de fases: ");
+                                    int fases = lea.nextInt();
+                                    lea = new Scanner(System.in);
+                                    System.out.println("Ingrese la cantidad de motores");
+                                    int motores = lea.nextInt();
+                                    lea = new Scanner(System.in);
+                                    System.out.println("Ingrese la altura: ");
+                                    int altura = lea.nextInt();
+                                    cohetes.add(new DeFases(fases, motores, altura, pesoSoport, nombre, numSerie, potencia));
+                                    break;
+                                case 3:
+                                    System.out.println("Ingrese los kilos de combustible: ");
+                                    int kilos = lea.nextInt();
+                                    lea = new Scanner(System.in);
+                                    System.out.println("Ingrese le material del combustible: ");
+                                    String material = lea.nextLine();
+                                    lea = new Scanner(System.in);
+                                    cohetes.add(new CombustSolid(kilos, material, pesoSoport, nombre, numSerie, potencia));
+
+                                    break;
+                                default:
+                                    System.out.println("Ingreso un tipo invalido");
+                                    break;
+                            }
+                        }
+                    } else {
+                        System.out.println("Ese numero de serie ya existe.");
+                    }
+                }
+                break;
+                case 2: {
+                    System.out.println("Ingrese el nombre: ");
+                    String nombre = lea.next();
+                    lea = new Scanner(System.in);
+                    int checkNom = 0;
+                    for (Planetas planeta : planetas) {
+                        if (planeta.getNombre().equals(nombre)) {
+                            checkNom = 1;
+                        }
+                    }
+                    if (checkNom == 0) {
+                        System.out.println("Ingrese la masa: ");
+                        int masa = lea.nextInt();
+                        lea = new Scanner(System.in);
+                        System.out.println("Ingrese el radio: ");
+                        int radio = lea.nextInt();
+                        lea = new Scanner(System.in);
+                        System.out.println("Ingrese la temperatura promedio: ");
+                        int tempProm = lea.nextInt();
+                        lea = new Scanner(System.in);
+                        System.out.println("Ingrese el tipo de planeta: ");
+                        System.out.println("1) Rocoso");
+                        System.out.println("2) Gaseoso");
+                        int tipo = lea.nextInt();
+                        switch (tipo) {
+                            case 1:
+                                System.out.println("Ingrese la densidad: ");
+                                int densidad = lea.nextInt();
+                                lea = new Scanner(System.in);
+                                System.out.println("Ingrese si hay vida(1-SI   2-NO): ");
+                                int vida = lea.nextInt();
+                                lea = new Scanner(System.in);
+                                boolean ifVida = false;
+                                switch (vida) {
+                                    case 1:
+                                        ifVida = true;
+                                        planetas.add(new Rocosos(densidad, ifVida, nombre, masa, radio, tempProm));
+                                        break;
+                                    case 2:
+                                        ifVida = true;
+                                        planetas.add(new Rocosos(densidad, ifVida, nombre, masa, radio, tempProm));
+                                        break;
+                                    default:
+                                        System.out.println("Ingreso un dato invalido para verificar si hay vida. ");
+                                        break;
+                                }
+                                break;
+
+                            case 2:
+                                System.out.println("Ingrese la presion: ");
+                                int presion = lea.nextInt();
+                                lea = new Scanner(System.in);
+                                System.out.println("Ingrese la cantidad anillos: ");
+                                int cantAnillos = lea.nextInt();
+                                lea = new Scanner(System.in);
+                                planetas.add(new Gaseosos(presion, cantAnillos, nombre, masa, radio, tempProm));
+                                break;
+                            default:
+                                System.out.println("Ingreso un tipo de planeta invalido.");
+                                break;
+                        }
+                    } else {
+                        System.out.println("El nombre del planeta ya existe.");
+                    }
+                }
+                break;
+                case 3: {
+                    System.out.println("Ingrese el indice del cohete que desea modificar: ");
+                    int modCohete = lea.nextInt();
+                    lea = new Scanner(System.in);
+                    if (modCohete < cohetes.size()) {
+                        System.out.println("-------Cohete-------");
+                        System.out.println("1) Agregar Personas");
+                        System.out.println("2) Eliminar Personas");
+                        System.out.println("-------------------");
+                        int opcionCohete = lea.nextInt();
+                        lea = new Scanner(System.in);
+                        switch (opcionCohete) {
+                            case 1:
+                                System.out.println("Ingres el nombre: ");
+                                String nombre = lea.nextLine();
+                                lea = new Scanner(System.in);
+                                System.out.println("Ingrese la edad: ");
+                                int edad = lea.nextInt();
+                                lea = new Scanner(System.in);
+                                System.out.println("Ingrese el peso: ");
+                                int peso = lea.nextInt();
+                                lea = new Scanner(System.in);
+                                cohetes.get(modCohete).getPersonas().add(new Personas(nombre, edad, peso));
+                                break;
+                            case 2:
+                                System.out.println("Ingrese el indice de la persona que desea eliminar: ");
+                                int elimPersona = lea.nextInt();
+                                lea = new Scanner(System.in);
+                                if (elimPersona < cohetes.get(modCohete).getPersonas().size()) {
+                                    cohetes.get(modCohete).getPersonas().remove(elimPersona);
+                                } else {
+                                    System.out.println("El indice de la persona no existe: ");
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    } else {
+                        System.out.println("El indice del cohete no existe.");
+                    }
+                }
+                break;
+                case 4: {
+                    System.out.println("Ingrese el Indice del planeta que desea modificar: ");
+                    int modPlaneta = lea.nextInt();
+                    lea = new Scanner(System.in);
+                    System.out.println("-------Lunas-------");
+                    System.out.println("1) Agregar Lunas");
+                    System.out.println("2) Eliminar Lunas");
+                    System.out.println("-------------------");
+                    int opcionLuna = lea.nextInt();
+                    lea = new Scanner(System.in);
+                    switch (opcionLuna) {
+                        case 1:
+                            System.out.println("Ingrese el nombre: ");
+                            String nombre = lea.nextLine();
+                            lea = new Scanner(System.in);
+                            System.out.println("Ingrese la cantidad de crateres: ");
+                            int cantCrater = lea.nextInt();
+                            lea = new Scanner(System.in);
+                            planetas.get(modPlaneta).getLunas().add(new Lunas(nombre, cantCrater));
+                            break;
+                        case 2:
+                            System.out.println("Ingrese el indice de la luna que desea eliminar: ");
+                            int elimLuna = lea.nextInt();
+                            planetas.get(modPlaneta).getLunas().remove(elimLuna);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                break;
+                case 5: {
+                    System.out.println(cohetes);
+                }
+                break;
+                case 6: {
+                    System.out.println(planetas);
+                }
+                break;
+                case 7: {
+
+                }
+                break;
+                case 8: {
+                    centinela = false;
+                }
+                break;
+                default: {
+                    System.out.println("Ingreso un valor invalido");
+                }
+
+            }
         }
     }
 
