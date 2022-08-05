@@ -1,13 +1,15 @@
 package lab3p2_kevinbanegas_12211129;
 
 import java.util.ArrayList;
-
+import java.util.Random;
 public class Planetas {
+    private double G = Math.pow(6.67*10, -11);
+    protected Random r = new Random();
     protected String nombre;
     protected int masa;
     protected int radio;
     protected int tempProm;
-    protected int velEscape;
+    protected double velEscape;
     protected ArrayList<Lunas> lunas = new ArrayList();
 
     public Planetas(String nombre, int masa, int radio, int tempProm) {
@@ -15,6 +17,7 @@ public class Planetas {
         this.masa = masa;
         this.radio = radio;
         this.tempProm = tempProm;
+        this.velEscape=(2*G*masa)/radio;
     }
 
     public String getNombre() {
@@ -49,11 +52,11 @@ public class Planetas {
         this.tempProm = tempProm;
     }
 
-    public int getVelEscape() {
+    public double getVelEscape() {
         return velEscape;
     }
 
-    public void setVelEscape(int velEscape) {
+    public void setVelEscape(double velEscape) {
         this.velEscape = velEscape;
     }
 

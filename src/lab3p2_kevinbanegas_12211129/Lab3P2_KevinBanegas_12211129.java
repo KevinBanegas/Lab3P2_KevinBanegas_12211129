@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Lab3P2_KevinBanegas_12211129 {
 
     static Scanner lea = new Scanner(System.in);
-
+    double G = Math.pow(6.67*10, -11);
     public static void main(String[] args) {
         boolean centinela = true;
         ArrayList<Planetas> planetas = new ArrayList();
@@ -105,6 +105,8 @@ public class Lab3P2_KevinBanegas_12211129 {
                                     System.out.println("Ingreso un tipo invalido");
                                     break;
                             }
+                        } else {
+                            System.out.println("La potencia que ingreso es invalido.");
                         }
                     } else {
                         System.out.println("Ese numero de serie ya existe.");
@@ -181,7 +183,7 @@ public class Lab3P2_KevinBanegas_12211129 {
                     System.out.println("Ingrese el indice del cohete que desea modificar: ");
                     int modCohete = lea.nextInt();
                     lea = new Scanner(System.in);
-                    if (modCohete < cohetes.size()) {
+                    if (modCohete < cohetes.size() && modCohete > 0) {
                         System.out.println("-------Cohete-------");
                         System.out.println("1) Agregar Personas");
                         System.out.println("2) Eliminar Personas");
@@ -205,7 +207,7 @@ public class Lab3P2_KevinBanegas_12211129 {
                                 System.out.println("Ingrese el indice de la persona que desea eliminar: ");
                                 int elimPersona = lea.nextInt();
                                 lea = new Scanner(System.in);
-                                if (elimPersona < cohetes.get(modCohete).getPersonas().size()) {
+                                if (elimPersona < cohetes.get(modCohete).getPersonas().size() && elimPersona > 0) {
                                     cohetes.get(modCohete).getPersonas().remove(elimPersona);
                                 } else {
                                     System.out.println("El indice de la persona no existe: ");
@@ -222,30 +224,38 @@ public class Lab3P2_KevinBanegas_12211129 {
                 case 4: {
                     System.out.println("Ingrese el Indice del planeta que desea modificar: ");
                     int modPlaneta = lea.nextInt();
-                    lea = new Scanner(System.in);
-                    System.out.println("-------Lunas-------");
-                    System.out.println("1) Agregar Lunas");
-                    System.out.println("2) Eliminar Lunas");
-                    System.out.println("-------------------");
-                    int opcionLuna = lea.nextInt();
-                    lea = new Scanner(System.in);
-                    switch (opcionLuna) {
-                        case 1:
-                            System.out.println("Ingrese el nombre: ");
-                            String nombre = lea.nextLine();
-                            lea = new Scanner(System.in);
-                            System.out.println("Ingrese la cantidad de crateres: ");
-                            int cantCrater = lea.nextInt();
-                            lea = new Scanner(System.in);
-                            planetas.get(modPlaneta).getLunas().add(new Lunas(nombre, cantCrater));
-                            break;
-                        case 2:
-                            System.out.println("Ingrese el indice de la luna que desea eliminar: ");
-                            int elimLuna = lea.nextInt();
-                            planetas.get(modPlaneta).getLunas().remove(elimLuna);
-                            break;
-                        default:
-                            break;
+                    if (modPlaneta < planetas.size() && modPlaneta > 0) {
+                        lea = new Scanner(System.in);
+                        System.out.println("-------Lunas-------");
+                        System.out.println("1) Agregar Lunas");
+                        System.out.println("2) Eliminar Lunas");
+                        System.out.println("-------------------");
+                        int opcionLuna = lea.nextInt();
+                        lea = new Scanner(System.in);
+                        switch (opcionLuna) {
+                            case 1:
+                                System.out.println("Ingrese el nombre: ");
+                                String nombre = lea.nextLine();
+                                lea = new Scanner(System.in);
+                                System.out.println("Ingrese la cantidad de crateres: ");
+                                int cantCrater = lea.nextInt();
+                                lea = new Scanner(System.in);
+                                planetas.get(modPlaneta).getLunas().add(new Lunas(nombre, cantCrater));
+                                break;
+                            case 2:
+                                System.out.println("Ingrese el indice de la luna que desea eliminar: ");
+                                int elimLuna = lea.nextInt();
+                                if (elimLuna < planetas.get(modPlaneta).getLunas().size() && elimLuna > 0) {
+                                    planetas.get(modPlaneta).getLunas().remove(elimLuna);
+                                } else {
+                                    System.out.println("El indice de la luna no existe.");
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    } else {
+                        System.out.println("El indice del planeta no existe. ");
                     }
                 }
                 break;
@@ -258,7 +268,7 @@ public class Lab3P2_KevinBanegas_12211129 {
                 }
                 break;
                 case 7: {
-
+                    
                 }
                 break;
                 case 8: {
