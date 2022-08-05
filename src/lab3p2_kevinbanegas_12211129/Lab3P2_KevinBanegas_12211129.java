@@ -10,6 +10,7 @@ public class Lab3P2_KevinBanegas_12211129 {
     static Random r = new Random();
 
     public static void main(String[] args) {
+        try{
         boolean centinela = true;
         ArrayList<Planetas> planetas = new ArrayList();
         ArrayList<Cohetes> cohetes = new ArrayList();
@@ -332,6 +333,9 @@ public class Lab3P2_KevinBanegas_12211129 {
                 }
 
             }
+        }
+        }catch(Exception e){
+            System.out.println("Ingreso datos invalidos");
         }
     }
 
