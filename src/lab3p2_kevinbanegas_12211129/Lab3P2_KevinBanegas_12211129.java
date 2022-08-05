@@ -31,9 +31,6 @@ public class Lab3P2_KevinBanegas_12211129 {
         cohetes.add(new CombustSolid(1900, "Thorium", 800000, "Europa", 123442, 8));
         cohetes.get(2).getPersonas().add(new Personas("Alex", 31, 100));
         cohetes.get(2).getPersonas().add(new Personas("Kevun", 28, 1020));
-
-        System.out.println(planetas);
-        System.out.println(cohetes);
         while (centinela == true) {
             System.out.println("---------Universe SandBox 3---------");
             System.out.println("1) Crear Cohete");
@@ -262,11 +259,17 @@ public class Lab3P2_KevinBanegas_12211129 {
                 }
                 break;
                 case 5: {
-                    System.out.println(cohetes);
+                    System.out.print("--------Cohetes--------");
+                    for (Cohetes cohete : cohetes) {
+                        System.out.println("\nIndice: "+cohetes.indexOf(cohete)+cohete);
+                    }
                 }
                 break;
                 case 6: {
-                    System.out.println(planetas);
+                    System.out.println("--------Planetas--------");
+                    for (Planetas planeta : planetas) {
+                        System.out.println("\nIndice: "+planetas.indexOf(planeta)+planeta);
+                    }
                 }
                 break;
                 case 7: {
